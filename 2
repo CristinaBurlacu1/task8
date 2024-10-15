@@ -1,0 +1,70 @@
+public class Invoice {
+    // Membri privați ai clasei
+    private String model;
+    private String description;
+    private int quantity;
+    private double pricePerItem;
+
+    // Constructor cu parametri
+    public Invoice(String model, String description, int quantity, double pricePerItem) {
+        this.model = model;
+        this.description = description;
+        setQuantity(quantity);
+        setPricePerItem(pricePerItem);
+    }
+
+    // Getter și setter pentru model
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    // Getter și setter pentru descriere
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    // Getter și setter pentru cantitate (cu validare)
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        if (quantity > 0) {
+            this.quantity = quantity;
+        } else {
+            this.quantity = 0;
+        }
+    }
+
+    // Getter și setter pentru preț pe produs (cu validare)
+    public double getPricePerItem() {
+        return pricePerItem;
+    }
+
+    public void setPricePerItem(double pricePerItem) {
+        if (pricePerItem > 0) {
+            this.pricePerItem = pricePerItem;
+        } else {
+            this.pricePerItem = 0.0;
+        }
+    }
+
+    // Metoda pentru calcularea sumei facturii
+    public double getAmount() {
+        return quantity * pricePerItem;
+    }
+
+    // Metodă pentru testare
+    public static void main(String[] args) {
+        Invoice invoice = new Invoice("Laptop", "High performance laptop", 2, 999.99);
+        System.out.println("Suma facturii este: " + invoice.getAmount());
+    }
+}
