@@ -1,0 +1,55 @@
+public class Date {
+    // Membri privați ai clasei
+    private int day;
+    private int month;
+    private int year;
+
+    // Getter și setter pentru zi (cu validare)
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        if (day >= 1 && day <= 31) {
+            this.day = day;
+        } else {
+            System.out.println("Zi invalidă! Trebuie să fie între 1 și 31.");
+        }
+    }
+
+    // Getter și setter pentru lună (cu validare)
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        if (month >= 1 && month <= 12) {
+            this.month = month;
+        } else {
+            System.out.println("Lună invalidă! Trebuie să fie între 1 și 12.");
+        }
+    }
+
+    // Getter și setter pentru an (fără validare specială)
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    // Metodă pentru afișarea datei în format zi/lună/an
+    public void displayDate() {
+        System.out.println(day + "/" + month + "/" + year);
+    }
+
+    // Metodă pentru testare
+    public static void main(String[] args) {
+        Date date = new Date();
+        date.setDay(13);
+        date.setMonth(10);
+        date.setYear(2024);
+        date.displayDate();
+    }
+}
